@@ -45,7 +45,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-2048-dalvik-heap.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := n7100
-PRODUCT_NAME := cm_n7100
+PRODUCT_NAME := exodus_n7100
 PRODUCT_BRAND := samsung
 PRODUCT_MODEL := GT-N7100
 PRODUCT_MANUFACTURER := samsung
