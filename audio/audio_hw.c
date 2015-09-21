@@ -1729,15 +1729,23 @@ static int set_preprocessor_param(effect_handle_t handle,
 static int set_preprocessor_echo_delay(effect_handle_t handle,
                                      int32_t delay_us)
 {
-    uint32_t buf[sizeof(effect_param_t) / sizeof(uint32_t) + 2];
-    effect_param_t *param = (effect_param_t *)buf;
-
-    param->psize = sizeof(uint32_t);
-    param->vsize = sizeof(uint32_t);
-    *(uint32_t *)param->data = AEC_PARAM_ECHO_DELAY;
-    *((int32_t *)param->data + 1) = delay_us;
-
-    return set_preprocessor_param(handle, param);
+    //uint32_t buf[sizeof(effect_param_t) / sizeof(uint32_t) + 2];
+    //effect_param_t *param = (effect_param_t *)buf;
+    //param->psize = sizeof(uint32_t);
+    //param->vsize = sizeof(uint32_t);
+    //*((uint32_t *)param->data) = AEC_PARAM_ECHO_DELAY;
+    //*((int32_t *)param->data + 1) = delay_us;
+    //return set_preprocessor_param(handle, param);
+    //To avoid cpp compile error issue
+    union {
+        uint32_t buf[sizeof(effect_param_t) / sizeof(uint32_t) + 2];
+        effect_param_t *param;
+    } u;
+    u.param->psize = sizeof(uint32_t);
+    u.param->vsize = sizeof(uint32_t);
+    memcpy(u.param->data, (uint32_t *) AEC_PARAM_ECHO_DELAY, sizeof(uint32_t));
+    memcpy(u.param->data+u.param->psize, &delay_us, u.param->vsize);
+    return set_preprocessor_param(handle, u.param);
 }
 
 static void push_echo_reference(struct m0_stream_in *in, size_t frames)
