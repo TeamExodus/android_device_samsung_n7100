@@ -19,8 +19,8 @@
 
 -include device/samsung/smdk4412-common/BoardCommonConfig.mk
 
-# Bionic #REVISIT
-#MALLOC_IMPL := dlmalloc
+# Bionic
+MALLOC_IMPL := dlmalloc
 
 # RIL
 BOARD_PROVIDES_LIBRIL := true
