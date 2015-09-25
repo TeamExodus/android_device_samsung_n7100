@@ -8,6 +8,10 @@
         "target_path": "kernel/samsung/smdk4412"
     },
     {
+        "repository": "hardware_samsung_n7100",
+        "target_path": "hardware/samsung_n7100"
+    },
+    {
         "repository": "proprietary_vendor_samsung",
         "target_path": "vendor/samsung"
     }
