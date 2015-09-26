@@ -44,5 +44,5 @@ TARGET_SPECIFIC_HEADER_PATH := device/samsung/n7100/include
 -include vendor/samsung/n7100/BoardConfigVendor.mk
 
 # Recovery
-TARGET_RECOVERY_FSTAB := device/samsung_n7100/rootdir/fstab.smdk4x12
+TARGET_RECOVERY_FSTAB := device/samsung/n7100/rootdir/fstab.smdk4x12
 RECOVERY_FSTAB_VERSION := 2
