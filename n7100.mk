@@ -105,4 +105,4 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.sensor.barometer.xml:system/etc/permissions/android.hardware.sensor.barometer.xml
 
 
-$(call inherit-product-if-exists, vendor/samsung/n7100/n7100-vendor.mk)
+$(call inherit-product, vendor/samsung/n7100/n7100-vendor.mk)
